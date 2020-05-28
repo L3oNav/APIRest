@@ -1,0 +1,18 @@
+<p>Welcome @{{ user.username }}!</p>
+
+
+<p style="text-align:center">
+Verify your account clicking <button onClick="post({{token}})">here</button>    
+</p> 
+
+<script>
+  function post(token){
+    $.ajax({
+      type: "POST",
+      url: "http://0.0.0.0:8000/users/verify/",
+      data: {token:token},
+      dataType: "json",
+      contentType : "application/json"
+    });
+  }
+<script>
